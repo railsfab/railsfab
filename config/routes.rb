@@ -1,4 +1,6 @@
 Blog::Application.routes.draw do
+  post "post/create" => "blog_post#create"
+  get "post/new" => "blog_post#new"
   devise_for :users
   get "home/index"
     root :to => "home#index"
