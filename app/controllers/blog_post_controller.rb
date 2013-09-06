@@ -7,6 +7,7 @@ class BlogPostController < ApplicationController
     def create
         @post = BlogPost.new(user_params)
         if @post.valid?
+            @post.author = current_user
             @post.save()
             redirect_to root_url
         else
