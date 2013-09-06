@@ -47,3 +47,4 @@ end
 
 gem 'devise'
 gem 'foreman'
+gem 'rails_12factor', group: :production
