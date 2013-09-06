@@ -1,6 +1,8 @@
 Blog::Application.routes.draw do
+  get "posts/" => "blog_post#index"
   post "posts/create" => "blog_post#create"
   get "posts/new" => "blog_post#new"
+  get "posts/:id" => "blog_post#show", as: :get_post
   devise_for :users
   get "home/index"
     root :to => "home#index"

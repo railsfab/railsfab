@@ -9,7 +9,7 @@
     <% if index == 0 or index == 3 %>
         <div class="col-lg-6">
     <% end %>
-        <h4><%= p.title %></h4>
+        <h4><%= link_to p.title, url_for(controller: "blog_post", action: "show", id: p.id) %></h4>
         <p><%= p.short_content %></p>
     <% if index == 2 or index == 5 %>
         </div>
