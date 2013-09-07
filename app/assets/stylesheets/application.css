@@ -11,4 +11,12 @@
  *= require_self
  *= require_tree .
  */
-//= require bootstrap
+/*//= require bootstrap*/
+//= require_tree
+
+body {
+    background-image: url('background.jpg');
+}
+.container .bottom-flat {
+    border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;
+}

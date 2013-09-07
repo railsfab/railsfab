@@ -4,7 +4,22 @@
 <div class='well' style='min-height: 300px; '> 
     <%= @post.content.html_safe %>
 </div>
-<h2>Comments:</h2>
+<button class='btn btn-info btn-lg bottom-flat' >Post a comment</button>
+<div class='well'>
+    <%= form_for @comment, url: '', html: {class: 'comment_form'} do |f| %>
+    
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+    <br />
+
+    <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+    <br />
+
+    <%= f.text_area :comment, class: 'form-control', placeholder: 'Comment' %>
+    <br />
+    <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
+</div>
+<button class='btn btn-info btn-lg bottom-flat'>Comments</button>
 <% for comment in @post.comments %>
     <div class='well'>
         <%= comment.comment %>
