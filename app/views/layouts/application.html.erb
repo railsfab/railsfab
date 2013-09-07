@@ -11,7 +11,7 @@
 <div class="header">
     <ul class="nav nav-pills pull-right">
         <li class="active"><a href="/">Home</a></li>
-        <li><%= link_to "Create Post", url_for(controller: "blog_post", action: "new") %></li>
+        <li><%= link_to "Create Post", :new_post %></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
         <% if user_signed_in? %>
