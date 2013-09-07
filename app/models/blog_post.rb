@@ -4,7 +4,7 @@ class BlogPost < ActiveRecord::Base
     validates :content, presence: true
 
     def short_content
-        ActionView::Base.full_sanitizer.sanitize(self.content).slice(0, 100)
+        "%s ..." % ActionView::Base.full_sanitizer.sanitize(self.content).slice(0, 100)
     end
 
 end
