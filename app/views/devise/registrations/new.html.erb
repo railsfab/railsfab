@@ -2,7 +2,9 @@
 <div class='well'>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: 'nifty_form'}) do |f| %>
+    <div class='text-danger'>
   <%= devise_error_messages! %>
+  </div>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true, class: 'form-control medium-input' %></div>
