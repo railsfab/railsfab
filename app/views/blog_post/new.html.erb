@@ -1,4 +1,5 @@
-<h1>New Post</h1>
+<button class='btn btn-info btn-lg bottom-flat'>New Post</button>
+<div class='well'>
 <% if @post.errors.any? %>
     <p class='alert alert-danger'>Errors</p>
     <% @post.errors.full_messages.each do |e| %>
@@ -12,3 +13,4 @@
     <br />
     <%= f.submit "Create", class: "btn btn-primary"%>
 <% end %>
+</div>
