@@ -24,6 +24,18 @@
 
     <%= f.text_area :comment, size: '70x6', class: 'form-control', placeholder: 'Comment' %>
     <br />
+ <script type="text/javascript"
+     src="http://www.google.com/recaptcha/api/challenge?k=6LfhK-cSAAAAAA5H-Gg-XnYDNBCw5MSMy7wUdN4Y">
+  </script>
+  <noscript>
+     <iframe src="http://www.google.com/recaptcha/api/noscript?k=your_public_key"
+         height="300" width="500" frameborder="0"></iframe><br>
+     <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+     </textarea>
+     <input type="hidden" name="recaptcha_response_field"
+         value="manual_challenge">
+  </noscript>
+
     <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
 </div>

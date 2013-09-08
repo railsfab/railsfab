@@ -1,5 +1,7 @@
 class BlogPostController < ApplicationController
+    include BlogPostHelper
     before_filter :authenticate_user!, only: [:new, :create]
+
     def new
         @post = BlogPost.new
     end
@@ -16,12 +18,18 @@ class BlogPostController < ApplicationController
     end
 
     def create_comment
+        captcha_valid = validate_captcha params
+
         @comment = Comment.new(comment_params)
         @post = BlogPost.find(params[:id])
-        if @comment.valid?
-            @comment.post = @post
-            @comment.save
-            @comment = Comment.new
+        if captcha_valid
+            if @comment.valid?
+                @comment.post = @post
+                @comment.save
+                @comment = Comment.new
+            end
+        else
+            @comment.errors[:base] << "Entered CAPTCHA is wrong, please try again"
         end
         render :show
     end
@@ -45,4 +53,5 @@ class BlogPostController < ApplicationController
     def comment_params
         params.require(:comment).permit(:name, :email, :comment)
     end
+
 end
