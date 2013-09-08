@@ -21,6 +21,7 @@ class BlogPostController < ApplicationController
         if @comment.valid?
             @comment.post = @post
             @comment.save
+            @comment = Comment.new
         end
         render :show
     end
