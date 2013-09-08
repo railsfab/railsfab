@@ -26,8 +26,21 @@
     </ul>
     <h3 >Project name</h3>
 </div>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+
+<div style='margin-top: 45px;'>
+<% if notice %>
+<div class='well well-sm text-success'>
+    <%= notice %>
+</div>
+<% elsif alert %>
+<div class='well well-sm text-danger'>
+    <%= alert %>
+</div>
+<% end %>
+</div>
+
+
 
 <%= yield %>
 
