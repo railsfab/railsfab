@@ -1,5 +1,5 @@
 class BlogPostController < ApplicationController
-    before_filter :authenticate_user!
+    before_filter :authenticate_user!, only: [:new, :create]
     def new
         @post = BlogPost.new
     end
