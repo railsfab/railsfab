@@ -22,3 +22,8 @@ body {
 }
 
 .container .medium-sized { width: 430px; }
+
+.header .nav li a { color: whitesmoke; }
+.header .nav li a:hover { color: #428bca; font-weight: bold; }
+.header { color: whitesmoke; }
+
