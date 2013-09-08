@@ -3,6 +3,8 @@ Blog::Application.routes.draw do
   post "posts/create" => "blog_post#create"
   get "posts/new" => "blog_post#new", as: :new_post
   get "posts/:id" => "blog_post#show", as: :get_post
+
+  post "posts/:id" => "blog_post#create_comment", as: :create_comment
   devise_for :users
   get "home/index"
     root :to => "home#index"

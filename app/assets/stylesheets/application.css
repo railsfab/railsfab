@@ -20,3 +20,5 @@ body {
 .container .bottom-flat {
     border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;
 }
+
+.container .medium-sized { width: 430px; }

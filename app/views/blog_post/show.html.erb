@@ -6,15 +6,23 @@
 </div>
 <button class='btn btn-info btn-lg bottom-flat' >Post a comment</button>
 <div class='well'>
+<% if @comment.errors.any? %>
+    <p class='alert alert-danger'>Errors</p>
+    <% @comment.errors.full_messages.each do |e| %>
+        <p class='text-danger'><%= e %></p>
+    <% end %>
+<% end %>
     <%= form_for @comment, url: '', html: {class: 'comment_form'} do |f| %>
     
+    <div class='medium-sized'>
     <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
     <br />
 
     <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+    </div>
     <br />
 
-    <%= f.text_area :comment, class: 'form-control', placeholder: 'Comment' %>
+    <%= f.text_area :comment, size: '70x6', class: 'form-control', placeholder: 'Comment' %>
     <br />
     <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
@@ -23,7 +31,7 @@
 <% for comment in @post.comments %>
     <div class='well'>
         <%= comment.comment %>
-        <h6> By <%= comment.name %> </h6>
+        <h6> By <%= comment.name %> at <%= comment.created_at %>.</h6>
     </div>
 <% end %>
 <% if @post.comments.count == 0 %>
