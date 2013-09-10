@@ -1,7 +1,9 @@
 <div class='well well-sm'>
     <h2> <%= @post.title %></h2>
 </div>
+
 <div id='post-content' class='well' style='min-height: 300px; '> 
+    <img id='show-post-loader' src='/assets/horizontal-loader.gif' />
 </div>
 <div class='hide' id='post-content-markdown'>
     <%= @post.content %>
