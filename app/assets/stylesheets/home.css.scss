@@ -3,5 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container { width: 730px; }
-#show-post-loader { position: relative; left: 33%; top: 100px; }
+#show-post-loader { 
+    background-image: asset-url('horizontal-loader.gif'); 
+    position: relative; left: 33%; top: 100px;
+    height: 20px; width: 225px;
+}
 
