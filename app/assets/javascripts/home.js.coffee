@@ -10,15 +10,22 @@
 $(document).ready ->
   #new.html
   $("#blog_post_content").keyup ->
-    text = $("#blog_post_content").val();
-    c = new Markdown.Converter();
-    $(".preview").html(c.makeHtml(text));
+    text = $("#blog_post_content").val()
+    c = new Markdown.Converter()
+    $(".preview").html(c.makeHtml(text))
 
   # show.html
   if $("#post-content-markdown").length is 1
-    text = $("#post-content-markdown").text();
-    c = new Markdown.Converter();
-    $("#post-content").html(c.makeHtml(text));
+    text = $("#post-content-markdown").text()
+    c = new Markdown.Converter()
+    $("#post-content").html(c.makeHtml(text))
+
+
+  $("#posts-list .post-body").each ->
+    txt = $(this).find(".post-body-content").text()
+    c = new Markdown.Converter()
+    $(this).removeClass("hide").find(".post-body-content").html(c.makeHtml(txt))
+
 
   
 

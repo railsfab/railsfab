@@ -12,8 +12,11 @@ class BlogPost < ActiveRecord::Base
         self.slug = self.title.parameterize
     end
 
-    def short_content
-        "%s ..." % ActionView::Base.full_sanitizer.sanitize(self.content).slice(0, 100).gsub(/[^a-zA-Z0-9 ]+/, '')
+    def short_content(max_chars=nil)
+        if not max_chars
+            max_chars = 100
+        end
+        "%s ..." % ActionView::Base.full_sanitizer.sanitize(self.content).slice(0, max_chars).gsub(/[^a-zA-Z0-9 ]+/, '')
     end
 
 end

@@ -37,10 +37,14 @@ class BlogPostController < ApplicationController
     def index
         if params[:username]
             @user = User.find_by_username(params[:username])
+            if not @user
+                not_found
+            end
             @posts = @user.posts
         else
             @posts = BlogPost.all
         end
+        @posts = @posts.order("created_at DESC")
     end
 
     def show

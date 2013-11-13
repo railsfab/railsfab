@@ -1,5 +1,5 @@
 <% content_for :container_class do %>blog-container <% end %>
-<div class="well">
+<div class="well" id="posts-list">
 <% @posts.each do |post| %>
     <div class="post-block"> 
         <div class="post-block-left col-md-2">
@@ -12,6 +12,11 @@
         </div>
         <div class="post-block-right col-lg-10">
             <div class="post-title"><%= link_to post.title, post_show_path(slug: post.slug) %></div>
+            <div class="post-body hide"><div class="post-body-content"><%= truncate(post.content, length: 700) %></div>
+                <div class="read-more">
+                    <%= link_to "Read more..", post_show_path(slug: post.slug) %>
+                </div>
+            </div>
         </div>
         <div class="clearfix"></div>
     </div>
