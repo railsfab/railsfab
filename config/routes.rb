@@ -2,7 +2,7 @@ Blog::Application.routes.draw do
   get "posts/" => "blog_post#index"
   post "posts/create" => "blog_post#create"
   get "posts/new" => "blog_post#new", as: :new_post
-  get "posts/:id" => "blog_post#show", as: :get_post
+  get "posts/:id" => "blog_post#show", as: :post_show
 
   post "posts/:id" => "blog_post#create_comment", as: :create_comment
   devise_for :users
@@ -11,7 +11,7 @@ Blog::Application.routes.draw do
 
   get "/contact" => "contact#new", as: :contactus
   post "/contact" => "contact#create", as: :contact_create
-  get "/our-work" => "common#ourwork", as: :ourwork
+  get "/ourwork" => "common#ourwork", as: :ourwork
   get "/blog" => "blog_post#index", as: :blog
   get "/user/:username" => "blog_post#profile", as: :profile
     # The priority is based upon order of creation: first created -> highest priority.
