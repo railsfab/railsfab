@@ -1,0 +1,19 @@
+<button class='btn btn-info btn-lg bottom-flat'>Contact Us</button>
+<div class='well' id="contact-form">
+<% if @contact.errors.any? %>
+    <p class='alert alert-danger'>Errors</p>
+    <% @contact.errors.full_messages.each do |e| %>
+        <p class='text-danger'><%= e %></p>
+    <% end %>
+<% end %>
+<%= form_for @contact, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+        <%= f.text_field :name , class: 'form-control', placeholder: 'Full Name' %> 
+        <%= f.text_field :email , class: 'form-control', placeholder: 'Email' %>
+        <%= f.text_field :company, class: 'form-control', placeholder: 'Company' %>
+        <%= f.text_area :message, size: "60x12", class: 'form-control', placeholder: 'Content'   %>
+    <br />
+    <%= f.submit "Submit", class: "btn btn-primary"%>
+
+<% end %>
+</div>
+
