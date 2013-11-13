@@ -12,13 +12,16 @@
 <div class="header">
     <ul class="nav nav-pills pull-right">
         <li class="active"><a href="/">Home</a></li>
-        <li ><a href="/our-work">Our Work</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li ><%= link_to "Our Work", ourwork_path %></li>
+        <li><%= link_to "Contact", contactus_path %></li>
+        <li><%= link_to "Blog", blog_path %></li>
         <% if user_signed_in? %>
+            <li><%= link_to "New Post", new_post_path %> </li>
             <li>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             </li>
+
+
         <% end %>
     </ul>
     <h3 >Railsfab</h3>
