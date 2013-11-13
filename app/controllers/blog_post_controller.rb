@@ -21,7 +21,7 @@ class BlogPostController < ApplicationController
         captcha_valid = validate_captcha params
 
         @comment = Comment.new(comment_params)
-        @post = BlogPost.find(params[:id])
+        @post = BlogPost.find_by_slug(params[:slug])
         if captcha_valid
             if @comment.valid?
                 @comment.post = @post
@@ -35,17 +35,17 @@ class BlogPostController < ApplicationController
     end
 
     def index
-        @posts = BlogPost.all
+        if params[:username]
+            @user = User.find_by_username(params[:username])
+            @posts = @user.posts
+        else
+            @posts = BlogPost.all
+        end
     end
 
     def show
-        @post = BlogPost.find(params[:id])
+        @post = BlogPost.find_by_slug(params[:slug])
         @comment = Comment.new
-    end
-
-    def profile
-        @user = User.find_by(username: params[:username])
-        @posts = @user.posts
     end
 
     

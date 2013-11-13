@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20131113035329) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
+    t.string   "slug"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
