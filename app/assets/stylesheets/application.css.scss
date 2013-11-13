@@ -27,5 +27,10 @@ body {
 .header .nav li a:hover { color: #428bca; font-weight: bold; }
 .header { color: whitesmoke; }
 .container .medium-input { width: 300px; }
-.container .top-rounded { border-top-left-radius: 50px; border-top-right-radius: 50px; }
+.container .top-rounded { border-top-left-radius: 50px; border-top-right-radius: 50px; text-align: center; }
 .container.show-blog-container { width: 75%; }
+.container.blog-container { width: 70%; }
+
+.post-block { min-height: 100px; border-bottom: 1px solid rgb(218, 215, 243); margin-top: 5px; }
+.post-block:last-child { border-bottom: none; }
+

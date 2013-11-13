@@ -3,6 +3,7 @@
 <head>
     <title>Railsfab - Rails Development Company <%= yield :extra_title %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
   <%= csrf_meta_tags %>
 </head>
@@ -11,16 +12,12 @@
 <div class="header">
     <ul class="nav nav-pills pull-right">
         <li class="active"><a href="/">Home</a></li>
-        <li><%= link_to "Create Post", :new_post %></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li ><a href="/our-work">Our Work</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/blog">Blog</a></li>
         <% if user_signed_in? %>
             <li>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-            </li>
-        <% else %>
-            <li>
-                <%= link_to "Login", new_user_session_path  %>
             </li>
         <% end %>
     </ul>

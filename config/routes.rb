@@ -7,7 +7,13 @@ Blog::Application.routes.draw do
   post "posts/:id" => "blog_post#create_comment", as: :create_comment
   devise_for :users
   get "home/index"
-    root :to => "home#index"
+   root :to => "home#index"
+
+  get "/contact" => "contact#new", as: :contactus
+  post "/contact" => "contact#create", as: :contact_create
+  get "/our-work" => "common#ourwork", as: :ourwork
+  get "/blog" => "blog_post#index", as: :blog
+  get "/user/:username" => "blog_post#profile", as: :profile
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
 

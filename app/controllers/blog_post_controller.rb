@@ -43,6 +43,11 @@ class BlogPostController < ApplicationController
         @comment = Comment.new
     end
 
+    def profile
+        @user = User.find_by(username: params[:username])
+        @posts = @user.posts
+    end
+
     
     private
 

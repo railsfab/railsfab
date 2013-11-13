@@ -1,6 +1,7 @@
+
 <% content_for :container_class do %>blog-container <% end %>
 <div class="well">
-<% @posts.each do |post| %>
+    <% @posts.each do |post| %>
     <div class="post-block"> 
         <div class="post-block-left col-md-2">
             <img src="<%= gravatar_image(post.author.email) %>" />
@@ -15,5 +16,5 @@
         </div>
         <div class="clearfix"></div>
     </div>
-<% end %>
+    <% end %>
 </div>
