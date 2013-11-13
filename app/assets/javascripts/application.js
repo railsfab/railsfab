@@ -14,3 +14,28 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+    update_active_nav();
+})
+
+function update_active_nav(){
+    var path = window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
+    $(".nav li").removeClass("active");
+    console.log(path);
+
+    if(path === ""){
+        $("#nav-link-home").addClass("active");
+    }else if(path === "blog"){
+        $("#nav-link-blog").addClass("active");
+    }else if(path === "contact"){
+        $("#nav-link-contact").addClass("active");
+    }else if(path === "ourwork"){
+        $("#nav-link-ourwork").addClass("active");
+    }else if(path === "posts/new"){
+        $("#nav-link-new-post").addClass("active");
+    }
+}
+
+
