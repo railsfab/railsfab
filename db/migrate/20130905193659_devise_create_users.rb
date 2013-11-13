@@ -6,6 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :encrypted_password, :null => false, :default => ""
 
       ## More columns
+      t.string :username
       t.string :first_name
       t.string :last_name
 
