@@ -26,10 +26,14 @@ body {
 .header .nav li a:hover { color: #428bca; font-weight: bold; }
 .header { color: whitesmoke; }
 .container .top-rounded { border-top-left-radius: 50px; border-top-right-radius: 50px; text-align: center; }
-.container.show-blog-container { width: 75%; }
-.container.blog-container { width: 70%; }
 .container { width: 70%; }
 
 .post-block { min-height: 100px; border-bottom: 1px solid rgb(218, 215, 243); margin-top: 5px; }
 .post-block:last-child { border-bottom: none; }
 
+@media only screen and (min-width: 200px) and (max-width: 350px) {
+    .container { width: 97%; }
+}
+@media only screen and (min-width: 350px) and (max-width: 450px) {
+    .container { width: 85%; }
+}
