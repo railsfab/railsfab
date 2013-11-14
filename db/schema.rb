@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113035329) do
+ActiveRecord::Schema.define(version: 20131114024508) do
 
   create_table "blog_posts", force: true do |t|
     t.string   "title"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20131113035329) do
   end
 
   add_index "blog_posts", ["author_id"], name: "index_blog_posts_on_author_id", using: :btree
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.string   "name"
