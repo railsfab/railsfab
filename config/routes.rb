@@ -14,6 +14,11 @@ Blog::Application.routes.draw do
   get "/ourwork" => "common#ourwork", as: :ourwork
   get "/blog" => "blog_post#index", as: :blog
   get "/user/:username" => "blog_post#index", as: :profile
+
+  get "category/new"
+  post "category/create"
+  get "category/index"
+  get "category/:slug" => "category#show", as: :category_show
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
 
