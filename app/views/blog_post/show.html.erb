@@ -13,13 +13,13 @@
 <div class="post-categories well">
     Categories: 
     <% @post.categories.each do |category| %>
-        <span class=".comma">,</span>   <span class="category-label"> <%= link_to category.name, category_show_path(slug: category.slug) %></span>
+        <span class="comma">,</span>   <span class="category-label"> <%= link_to category.name, category_show_path(slug: category.slug) %></span>
     <% end %>
 </div>
 <div class="post-tags well">
     Tags: 
     <% @post.tags.each do |tag| %>
-        <span class=".comma">,</span>  <span class="tag-label">  <%= link_to tag.name, tag_show_path(slug: tag.slug) %></span>
+        <span class="comma">,</span>  <span class="tag-label">  <%= link_to tag.name, tag_show_path(slug: tag.slug) %></span>
     <% end %>
 </div>
 <button class='btn btn-info btn-lg bottom-flat' >Post a comment</button>

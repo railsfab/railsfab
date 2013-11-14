@@ -2,6 +2,9 @@ class BlogPost < ActiveRecord::Base
     has_many :comments, foreign_key: :post_id
     has_many :post_category_relations, foreign_key: :post_id
     has_many :categories, class_name: Category, through: :post_category_relations, uniq: true
+
+    has_many :post_tag_relations, foreign_key: :post_id
+    has_many :tags, class_name: Tag, through: :post_tag_relations, uniq: true
     belongs_to :author, class_name: "User", foreign_key: "author_id"
     validates :title, presence: true
     validates :content, presence: true
@@ -22,6 +25,7 @@ class BlogPost < ActiveRecord::Base
         end
         "%s ..." % ActionView::Base.full_sanitizer.sanitize(self.content).slice(0, max_chars).gsub(/[^a-zA-Z0-9 ]+/, '')
     end
+
     def add_categories(categories)
         for category in categories
             slug = category.parameterize
@@ -31,6 +35,19 @@ class BlogPost < ActiveRecord::Base
             end
             if self.categories.find_by(id: obj.id).nil?
                 self.categories.append obj
+            end
+        end
+    end
+
+    def add_tags(tags)
+        for tag in tags
+            slug = tag.parameterize
+            obj = Tag.find_by_slug(slug)
+            if obj.nil?
+                obj = Tag.create(name: tag)
+            end
+            if self.tags.find_by(id: obj.id).nil?
+                self.tags.append obj
             end
         end
     end

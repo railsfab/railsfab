@@ -15,6 +15,9 @@ class BlogPostController < ApplicationController
             #add categories
             @post.add_categories params[:categories].split(" ")
 
+            #add tags
+            @post.add_tags params[:tags].split(" ")
+
             redirect_to root_url
         else
             render :new
