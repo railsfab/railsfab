@@ -19,6 +19,9 @@ class CategoryController < ApplicationController
 
     def show
         @category = Category.find_by_slug(params[:slug])
+        if @category.nil?
+            not_found
+        end
     end
 
     private

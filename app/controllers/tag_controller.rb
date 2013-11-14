@@ -19,6 +19,9 @@ class TagController < ApplicationController
 
     def show
         @tag = Tag.find_by_slug(params[:slug])
+        if @tag.nil?
+            not_found
+        end
     end
 
     private

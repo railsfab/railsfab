@@ -29,6 +29,9 @@ class BlogPostController < ApplicationController
 
         @comment = Comment.new(comment_params)
         @post = BlogPost.find_by_slug(params[:slug])
+        if @post.nil?
+            not_found
+        end
         if captcha_valid
             if @comment.valid?
                 @comment.post = @post
@@ -56,6 +59,9 @@ class BlogPostController < ApplicationController
 
     def show
         @post = BlogPost.find_by_slug(params[:slug])
+        if @post.nil?
+            not_found
+        end
         @comment = Comment.new
     end
 
