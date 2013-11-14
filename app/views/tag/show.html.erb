@@ -1,1 +1,11 @@
-<%= @tag.name %>
+<button class='btn btn-info btn-lg bottom-flat'>Tagged Posts</button>
+<div class="well">
+    <% @tag.posts.each do |post| %>
+    <div>
+        <%= link_to post.title, post_show_path(slug: post.slug) %>
+    </div>
+    <% end %>
+    <% if @tag.posts.count == 0 %>
+        No posts tagged to '<%= @tag.name %>'
+    <% end %>
+</div>

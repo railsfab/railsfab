@@ -1,1 +1,11 @@
-<%= @category.name %>
+<div class="well">
+    <% @category.posts.each do |post| %>
+    <div>
+        <%= link_to post.title, post_show_path(slug: post.slug) %>
+    </div>
+    <% end %>
+    <% if @category.posts.count == 0 %>
+        No posts tagged to '<%= @tag.name %>'
+    <% end %>
+
+</div>
