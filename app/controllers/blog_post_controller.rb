@@ -44,7 +44,7 @@ class BlogPostController < ApplicationController
         else
             @posts = BlogPost.all
         end
-        @posts = @posts.order("created_at DESC")
+        @posts = @posts.order("created_at DESC").page(params[:page])
     end
 
     def show

@@ -8,6 +8,8 @@ class BlogPost < ActiveRecord::Base
         message: ": Post with this title already exists, 
         please modify title slightly" }
 
+    paginates_per 10
+
     def create_and_validate_slug
         self.slug = self.title.parameterize
     end
