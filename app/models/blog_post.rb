@@ -1,5 +1,7 @@
 class BlogPost < ActiveRecord::Base
     has_many :comments, foreign_key: :post_id
+    has_many :post_category_relations, foreign_key: :post_id
+    has_many :categories, class_name: Category, through: :post_category_relations, uniq: true
     belongs_to :author, class_name: "User", foreign_key: "author_id"
     validates :title, presence: true
     validates :content, presence: true
