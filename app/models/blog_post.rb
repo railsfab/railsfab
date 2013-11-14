@@ -22,5 +22,17 @@ class BlogPost < ActiveRecord::Base
         end
         "%s ..." % ActionView::Base.full_sanitizer.sanitize(self.content).slice(0, max_chars).gsub(/[^a-zA-Z0-9 ]+/, '')
     end
+    def add_categories(categories)
+        for category in categories
+            slug = category.parameterize
+            obj = Category.find_by_slug(slug)
+            if obj.nil?
+                obj = Category.create(name: category)
+            end
+            if self.categories.find_by(id: obj.id).nil?
+                self.categories.append obj
+            end
+        end
+    end
 
 end

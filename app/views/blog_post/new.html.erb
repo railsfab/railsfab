@@ -11,6 +11,10 @@
     <br />
     <%= f.text_area :content, size: "60x12", class: 'form-control', placeholder: 'Content'   %>
     <br />
+    <input type="text" name="categories" class="form-control" placeholder="Add categories separated by space" />
+    <br />
+    <input type="text" name="tags" class="form-control" placeholder="Add tags separated by space" />
+    <br />
     <%= f.submit "Create", class: "btn btn-primary"%>
 
 <% end %>

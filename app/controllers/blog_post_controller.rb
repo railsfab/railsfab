@@ -11,6 +11,10 @@ class BlogPostController < ApplicationController
         if @post.valid?
             @post.author = current_user
             @post.save()
+
+            #add categories
+            @post.add_categories params[:categories].split(" ")
+
             redirect_to root_url
         else
             render :new
