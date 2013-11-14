@@ -19,6 +19,11 @@ Blog::Application.routes.draw do
   post "category/create"
   get "category/index"
   get "category/:slug" => "category#show", as: :category_show
+
+  get "tag/new"
+  post "tag/create"
+  get "tag/index"
+  get "tag/:slug" => "tag#show", as: :tag_show
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
 
