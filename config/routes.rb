@@ -3,6 +3,8 @@ Blog::Application.routes.draw do
   post "posts/create" => "blog_post#create"
   get "posts/new" => "blog_post#new", as: :new_post
   get "posts/:slug" => "blog_post#show", as: :post_show
+  get "posts/:slug/edit" => "blog_post#edit", as: :post_edit
+  patch "posts/:slug/update" => "blog_post#update", as: :post_update
 
   post "posts/:slug" => "blog_post#create_comment", as: :create_comment
   devise_for :users

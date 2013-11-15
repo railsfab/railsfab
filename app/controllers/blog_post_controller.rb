@@ -24,6 +24,29 @@ class BlogPostController < ApplicationController
         end
     end
 
+    def edit
+        @post = BlogPost.find_by_slug(params[:slug])
+        @categories = @post.categories.pluck(:name)
+        @tags = @post.tags.pluck(:name)
+    end
+
+    def update
+        @post = BlogPost.find_by_slug params[:slug]
+        @post.assign_attributes user_params
+        if @post.valid?
+            @post.save()
+
+            @post.add_categories params[:categories].split(" ")
+
+            @post.add_tags params[:tags].split(" ")
+
+            redirect_to post_show_path(slug: @post.slug)
+        else
+            render :new
+        end
+
+    end
+
     def create_comment
         captcha_valid = validate_captcha params
 
