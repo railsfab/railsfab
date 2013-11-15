@@ -1,6 +1,6 @@
 class BlogPostController < ApplicationController
     include BlogPostHelper
-    before_filter :authenticate_user!, only: [:new, :create]
+    before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
 
     def new
         @post = BlogPost.new
