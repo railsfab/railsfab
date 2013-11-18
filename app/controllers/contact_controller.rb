@@ -7,6 +7,12 @@ class ContactController < ApplicationController
         @contact = Contact.new(contact_params)
         if @contact.valid?
             @contact.save()
+            begin
+                UserMailer.contactus(@contact).deliver()
+            rescue Exception => e
+                puts e
+                puts "Error sending email: contactus"
+            end
             redirect_to root_url
         else
             render :new
