@@ -1,5 +1,10 @@
 <% content_for :container_class do %>show-blog-container<% end %>
 <% content_for :extra_title do %>| <%= @post.title %><% end %>
+
+<div id="addthis-show-post">
+    <%= render partial: "static/addthis" %>
+</div>
+
 <div class='well well-sm top-rounded'>
     <h2> <%= @post.title %></h2>
 </div>

@@ -37,3 +37,11 @@ body {
 @media only screen and (min-width: 350px) and (max-width: 450px) {
     .container { width: 85%; }
 }
+@media only screen and (max-width: 600px) {
+    .addthis_floating_style.addthis_counter_style { display: none; }
+}
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+    .container #addthis-show-post .addthis_floating_style.addthis_counter_style { margin-left: -35px; }
+}
+
+.addthis_floating_style.addthis_counter_style { width: 70px; }
