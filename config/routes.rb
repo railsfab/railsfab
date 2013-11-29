@@ -1,4 +1,6 @@
 Blog::Application.routes.draw do
+  resources :pages
+
   get "posts/" => "blog_post#index"
   post "posts/create" => "blog_post#create"
   get "posts/new" => "blog_post#new", as: :new_post
