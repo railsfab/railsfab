@@ -1,6 +1,0 @@
-<button class='btn btn-info btn-lg bottom-flat'>List of pages</button>
-<div class="well" id="pages">
-<% @pages.each do |page| %>
-    <div><%= link_to page.name, edit_page_path(page) %></div>
-<% end %>
-</div>

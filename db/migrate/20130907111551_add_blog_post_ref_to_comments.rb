@@ -1,5 +1,0 @@
-class AddBlogPostRefToComments < ActiveRecord::Migration
-  def change
-    add_column :comments, :post_id, :integer, index: true
-  end
-end
