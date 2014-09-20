@@ -1,3 +1,3 @@
 [railsfab](http://www.railsfab.com/)
 
-![railsfab](railsfab.jpeg)
+![railsfab](rails.jpeg)
