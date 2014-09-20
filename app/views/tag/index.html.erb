@@ -1,8 +1,0 @@
-<button class='btn btn-info btn-lg bottom-flat'>Tags</button>
-<div class="well">
-    <% @categories.each do |tag| %>
-    <div class="tag">
-        <%= link_to tag.name, tag_show_path(slug: tag.slug) %>
-    </div>
-    <% end %>
-</div>
